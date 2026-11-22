@@ -1,4 +1,10 @@
-# TrovaDB
+<div align="center">
+<img src="assets/banner.png" alt="Banner">
+</div>
+
+<div align="center">
+<h1>TrovaDB — a pure-Python vector database designed for RAG</h1>
+</div>
 
 A lightweight, pure-Python vector database built from scratch.
 
@@ -60,25 +66,25 @@ from trovadb.client import Client
 with Client() as client:
     # Create a collection
     collection = client.get_or_create_collection("demo", dimension=3, metric="cosine")
-    
+
     # Upsert vectors (combines insert & update operations in one)
     collection.upsert(
-        ids=["1", "2", "3", "4", "5"], 
+        ids=["1", "2", "3", "4", "5"],
         vectors=[
-            [0.1, 0.2, 0.3], 
+            [0.1, 0.2, 0.3],
             [0.9, 0.8, 0.7],
             [0.2, 0.4, 0.4],
             [0.1, 0.8, 0.2],
-            [0.5, 0.3, 0.6]
-        ]
+            [0.5, 0.3, 0.6],
+        ],
     )
-    
+
     q = [0.1, 0.2, 0.3]
-    
+
     # Search for three nearest neighbors of q
     results = collection.search(query=q, k=3)
     ids = [result.vector.id for result in results]
-    print(ids) # -> ['1', '3', '5']
+    print(ids)  # -> ['1', '3', '5']
 
     # Delete specified vectors
     collection.delete(ids=["1", "3"])
