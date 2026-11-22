@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-<h1>TrovaDB — a pure-Python vector database designed for RAG</h1>
+<h1>TrovaDB — a pure-Python vector database</h1>
 </div>
 
 A lightweight, pure-Python vector database built from scratch.
